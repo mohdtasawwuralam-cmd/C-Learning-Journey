@@ -2,7 +2,7 @@
 int main() {
     float phy, chem, math;
     float total, percentage, average;
-    printf("Enter PHysics marks (out of 100)L ");
+    printf("Enter Physics marks (out of 100) ");
     scanf("%f", &phy);
     printf("Enter Chemistry marks (out of 100): ");
     scanf("%f", &chem);
