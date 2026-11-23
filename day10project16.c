@@ -11,7 +11,6 @@ int main() {
     printf("Select Vehicle Type (1-3): ");
     scanf("%d", &vehicleType);
 
-    // Invalid vehicle type check
     if (vehicleType < 1 || vehicleType > 3) {
         printf("\nError: Invalid vehicle type selected!\n");
         return 1;
@@ -25,7 +24,6 @@ int main() {
         return 1;
     }
 
-    // Base charge calculation based on vehicle type
     switch (vehicleType) {
         case 1: // Two-Wheeler
             if (hours <= 2) {
@@ -48,14 +46,12 @@ int main() {
             break;
     }
 
-    // 20% Surcharge for duration > 12 hours
     if (hours > 12) {
         surcharge = baseCharge * 0.20;
     }
 
     totalAmount = baseCharge + surcharge;
 
-    // Ticket Receipt Output
     printf("\n--- PARKING TICKET RECEIPT ---\n");
     if (vehicleType == 1) {
         printf("Vehicle Type    : Two-Wheeler\n");
