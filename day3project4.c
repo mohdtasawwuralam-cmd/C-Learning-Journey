@@ -1,12 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h> // rand() aur srand() ke liye
-#include <time.h>   // time() ke liye
+#include <stdlib.h> 
+#include <time.h>   
 
 int main() {
-    // Har baar naya random number generate karne ke liye seed
     srand(time(0)); 
     
-    // 1 se 100 ke beech random number generate karega
     int secret_number = (rand() % 100) + 1; 
     int guess;
     int attempts = 0;
