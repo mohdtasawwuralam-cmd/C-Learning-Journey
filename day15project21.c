@@ -49,7 +49,6 @@ int main() {
     return 0;
 }
 
-// 1. CREATE ACCOUNT (Proper File Writing)
 void createAccount() {
     FILE *fp = fopen("accounts.txt", "a");
     if (fp == NULL) {
@@ -68,14 +67,12 @@ void createAccount() {
     printf("Enter Initial Deposit Amount: ");
     scanf("%f", &acc.balance);
 
-    // Save with precise formatting
     fprintf(fp, "%d,%s,%d,%.2f\n", acc.acc_number, acc.name, acc.pin, acc.balance);
     fclose(fp);
 
     printf("\nAccount Created & Saved to File Successfully!\n");
 }
 
-// 2. DISPLAY ACCOUNT (Proper File Reading)
 void displayAccount() {
     FILE *fp = fopen("accounts.txt", "r");
     if (fp == NULL) {
@@ -92,7 +89,6 @@ void displayAccount() {
     printf("Enter PIN: ");
     scanf("%d", &entered_pin);
 
-    // Read comma-separated values safely
     while (fscanf(fp, "%d,%49[^,],%d,%f\n", &acc.acc_number, acc.name, &acc.pin, &acc.balance) == 4) {
         if (acc.acc_number == search_acc && acc.pin == entered_pin) {
             printf("\n========== ACCOUNT DETAILS ==========\n");
@@ -112,7 +108,6 @@ void displayAccount() {
     fclose(fp);
 }
 
-// 3. DEPOSIT MONEY (Safe Temp File Updating)
 void depositMoney() {
     FILE *fp = fopen("accounts.txt", "r");
     FILE *temp = fopen("temp.txt", "w");
@@ -146,7 +141,7 @@ void depositMoney() {
             }
             found = 1;
         }
-        // Write back to temp file
+       
         fprintf(temp, "%d,%s,%d,%.2f\n", acc.acc_number, acc.name, acc.pin, acc.balance);
     }
 
