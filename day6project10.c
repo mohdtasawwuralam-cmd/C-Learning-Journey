@@ -13,16 +13,14 @@ int main() {
     printf("     PVR MULTIPLEX SMART TICKET SYSTEM     \n");
     printf("===========================================\n");
 
-    // Step 1: Age Verification (A-Rated Movie Check)
     printf("Enter Viewer Age: ");
     scanf("%d", &age);
 
     if (age < 18) {
         printf("\n[ENTRY RESTRICTED] Sorry, this movie is A-Rated (18+ Only)!\n");
-        return 0; // Minor entry blocked
+        return 0; 
     }
 
-    // Step 2: Seat Selection
     printf("\nSelect Seat Category:\n");
     printf("1. Silver   (RS 150)\n");
     printf("2. Gold     (RS 250)\n");
@@ -35,7 +33,6 @@ int main() {
         return 0;
     }
 
-    // Step 3: Show Timing Selection
     printf("\nSelect Show Timing:\n");
     printf("1. Morning Show   (20%% Flat Discount)\n");
     printf("2. Regular Show   (Standard Rate)\n");
@@ -48,13 +45,9 @@ int main() {
         return 0;
     }
 
-    // Step 4: Optional Snack Combo
     printf("\nDo you want to add a Large Popcorn Combo for RS 180? (Y/N): ");
     scanf(" %c", &add_popcorn);
 
-    // ------------------- LOGIC SECTION -------------------
-
-    // Base Seat Price Setting
     if (seat_type == 1) {
         ticket_price = 150.0;
     } else if (seat_type == 2) {
@@ -63,21 +56,17 @@ int main() {
         ticket_price = 400.0;
     }
 
-    // Show Timing Adjustments
     if (show_time == 1) {
         ticket_price = ticket_price - (ticket_price * 0.20); // 20% Off
     } else if (show_time == 3) {
         ticket_price = ticket_price + (ticket_price * 0.15); // 15% Extra
     }
 
-    // Popcorn Addition
     if (add_popcorn == 'Y' || add_popcorn == 'y') {
         popcorn_price = 180.0;
     }
 
     total_bill = ticket_price + popcorn_price;
-
-    // ------------------- RECEIPT SECTION -------------------
 
     printf("\n-------------------------------------------\n");
     printf("              BOOKING SUMMARY              \n");
