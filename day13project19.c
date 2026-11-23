@@ -12,7 +12,6 @@ int main() {
     printf("     INDIAN RAILWAY RESERVATION SYSTEM  \n");
     printf("========================================\n");
 
-    // Step 1: Select Route
     printf("Select Route:\n");
     printf("1. Delhi to Mumbai\n");
     printf("2. Delhi to Chennai\n");
@@ -26,7 +25,6 @@ int main() {
         return 0;
     }
 
-    // Step 2: Select Dibba (Coach Class) with Specific Rates
     printf("\nSelect Coach Class (Dibba):\n");
     printf("1. VIP / 1st AC Class (1A)  - Executive VIP\n");
     printf("2. 2nd AC Class (2A)        - Premium AC\n");
@@ -35,7 +33,6 @@ int main() {
     printf("Enter Class Choice (1-4): ");
     scanf("%d", &coach_choice);
 
-    // Route + Dibba Price Calculation
     if (route_choice == 1) { // Delhi to Mumbai
         if (coach_choice == 1) base_fare = 3000.0;      // VIP 1st AC
         else if (coach_choice == 2) base_fare = 2000.0; // 2nd AC
@@ -66,7 +63,7 @@ int main() {
         return 0;
     }
 
-    // Step 3: Passenger Age Input
+    // Passenger Age Input
     printf("\nEnter Passenger Age: ");
     scanf("%d", &passenger_age);
 
@@ -75,7 +72,7 @@ int main() {
         return 0;
     }
 
-    // Step 4: Category Verification (Senior Citizen / Student Verification)
+    // Category Verification (Senior Citizen / Student Verification)
     if (passenger_age >= 60) {
         discount = base_fare * 0.40; // 40% Senior Citizen Discount
         printf("\n--> Senior Citizen Concession (40%%) applied!\n");
@@ -101,7 +98,7 @@ int main() {
         }
     }
 
-    // Step 5: Tatkal Surcharge
+    // Tatkal Surcharge
     printf("\nIs this a Tatkal Booking?\n");
     printf("Enter 1 for Tatkal (Rs. 200 Surcharge), 0 for Normal: ");
     scanf("%d", &is_tatkal);
@@ -110,10 +107,8 @@ int main() {
         tatkal_charge = 200.00;
     }
 
-    // Step 6: Final Ticket Calculation
     final_fare = (base_fare - discount) + tatkal_charge;
 
-    // Step 7: Print Final Receipt
     printf("\n========================================\n");
     printf("          CONFIRMED TRAIN TICKET        \n");
     printf("========================================\n");
