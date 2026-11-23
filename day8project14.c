@@ -7,7 +7,6 @@ int main() {
     int vip_pass_count = 0;
     double total_collection = 0.0;
 
-    // Toll Rates
     double car_rate = 100.0;
     double bus_truck_rate = 250.0;
     double bike_rate = 30.0;
@@ -25,31 +24,26 @@ int main() {
         printf("Select Vehicle Type (0-3): ");
         scanf("%d", &vehicle_type);
 
-        // REAL USE-CASE OF BREAK: Shift Supervisor closes operations
         if (vehicle_type == 0) {
             printf("\n>> Shift Closed By Supervisor. Processing Summary...\n");
             break; 
         }
 
-        // Invalid Choice Check
         if (vehicle_type < 0 || vehicle_type > 3) {
             printf("\n>> [ERROR] Invalid Selection! Try again.\n\n");
-            continue; // Invalid entry skip karke wapas menu par bhejo
+            continue; 
         }
 
-        // Emergency / VIP Check
         printf("Is it an Emergency/VIP Vehicle? (1 for Yes, 0 for No): ");
         scanf("%d", &emergency_flag);
 
-        // REAL USE-CASE OF CONTINUE: Skip payment calculation for Emergency
         if (emergency_flag == 1) {
             printf(">> [EXEMPTED] Emergency/VIP Vehicle Detected! Toll Gate Opened (FREE PASS).\n\n");
             vip_pass_count++;
             total_vehicles++;
-            continue; // Payment addition block skip karo aur next vehicle process karo
+            continue; 
         }
 
-        // Billing Logic
         total_vehicles++;
         if (vehicle_type == 1) {
             total_collection += bike_rate;
@@ -63,7 +57,6 @@ int main() {
         }
     }
 
-    // Shift Financial Summary Report
     printf("\n==================================================\n");
     printf("             SHIFT COLLECTION REPORT              \n");
     printf("==================================================\n");
