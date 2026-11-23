@@ -20,20 +20,17 @@ int main() {
             break;
         }
 
-        // Buffer clean karne ke liye taaki newline characters problem na karein
         getchar();
 
         if (choice == 1) {
             printf("\nEnter Secret Message (Text): ");
             fgets(message, sizeof(message), stdin);
             
-            // Trailing newline character remove karna
             message[strcspn(message, "\n")] = 0;
 
             printf("Enter Secret Key / Shift Number (1-10): ");
             scanf("%d", &key);
 
-            // Encryption Logic: Har character ki ASCII value shift karna
             for (int i = 0; message[i] != '\0'; i++) {
                 if (message[i] >= 'a' && message[i] <= 'z') {
                     message[i] = (message[i] - 'a' + key) % 26 + 'a';
@@ -52,7 +49,6 @@ int main() {
             printf("Enter Key used for Encryption: ");
             scanf("%d", &key);
 
-            // Decryption Logic: ASCII value ko waapis shift back karna
             for (int i = 0; message[i] != '\0'; i++) {
                 if (message[i] >= 'a' && message[i] <= 'z') {
                     message[i] = (message[i] - 'a' - key + 26) % 26 + 'a';
